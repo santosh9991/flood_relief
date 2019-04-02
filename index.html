@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="angularApp">
+    <!-- everything in this html is controlled by the variable bound to it by ng-app 
+    angularjs looks at the ng-app value and matches that with the module name in the angularjs, so that we can
+    connect it to this part of the DOM-->
+    <head>
+        <title>Introduction to AngularJS</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="UTF-8">
+
+        <!-- load bootstrap and fontawesome via CDN -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        <style>
+            html, body
+            {
+                font-size: 1.1em;
+            }
+        </style>
+        
+        <!-- load angular via CDN -->
+        <script src="angular.min.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body>
+
+        <header>
+			<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/">AngularJS</a>
+				</div>
+
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+				</ul>
+			</div>
+			</nav>
+		</header>
+
+        <div class="container">
+            <!--Now that we have a angular module assosiated with the angularApp, we could control the 
+            dom using the controller assosiated with that module(angularApp)
+            We do that by definig the ng-controller attribute to the html element. 
+            -->
+			<div ng-controller="mainController">
+            
+                    
+                <h1>Hello world!</h1>
+                
+            </div>
+
+		</div>
+
+    </body>
+</html>

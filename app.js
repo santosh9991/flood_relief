@@ -30,5 +30,17 @@ angularApp.controller(
         $scope.lowercase = function(){
             return $filter('lowercase')($scope.handle)
         }
+        $scope.$watch('handle',function(newValue,oldValue){
+            console.log("changed!")
+            console.log("old:",oldValue)
+            console.log("new:",newValue)
+        })
+        setTimeout(function(){
+            //$scope.handle is out of scope if you do not 
+            $scope.$apply(function(){
+            $scope.handle="newHandle"
+            console.log("setTimeout")
+            });
+        },3000)
     
 }]);

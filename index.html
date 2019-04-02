@@ -45,6 +45,7 @@
             -->
 			<div ng-controller="mainController">
             
+<!--
                  <form name="myForm">
                 <input type="text" ng-model="field" name="myField" required minlength="5" />
                 <div ng-messages="myForm.myField.$error">
@@ -52,7 +53,12 @@
                 <div class="alert alert-warning" ng-message="minlength">The value entered is too short</div>
                 </div>
                 </form>   
-                <h1>Hello world!</h1>
+-->
+                <!-- string interpolation: creating a string by combining strings and place holders
+                    $scope is the glue that is responsible for data transfer between the model and a view.
+                    As name is bound to the $scope object, it is interpolated as santosh as $scope.name is santosh
+                -->
+                <h1>Hello {{name}}!</h1>
                 
             </div>
 

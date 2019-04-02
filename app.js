@@ -17,14 +17,19 @@ angularApp.controller(
     [
         //scope binds the model and view togeather, object called scope and is a service
         //all angularjs services start with $ sign
-        '$scope','$log','$filter', function (
+        '$scope','$log','$filter','$timeout', function (
         //angularjs injected the $scope object for us. This is called dependency injection
         // we can add on to the scope object. Eg: $scope.name = "santosh"
-        $scope,$log,$filter) {
+        $scope,$log,$filter,$timeout) {
         //Any code inside here is assosiated with the part of the view defined by the controller name
         //mainController in index.html. This is a model code. Model code and the corresponding view is 
         //bound to each other without doing anything by angular code that is already in angular.min.js 
+        //whatever we put in scope, it is available in view
         $scope.name = 'Santosh';
+        $timeout(function()
+        {
+        $scope.name="Everyone"
+        },3000)
         $scope.formatedname = $filter('uppercase')($scope.name);
         $log.info($scope.name);
         $log.info($scope.formatedname);

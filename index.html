@@ -58,7 +58,17 @@
                     $scope is the glue that is responsible for data transfer between the model and a view.
                     As name is bound to the $scope object, it is interpolated as santosh as $scope.name is santosh
                 -->
-                <h1>Hello {{name}}!</h1>
+                <div>
+                <!--if you want text box content to respond and update the page on the fly, we need directive
+                ng-model is a custom directive which binds the property in the scope.binds handle property on the scope to the html element (input)
+                    
+                -->
+                    <label>What is your twitter ID/</label>
+                    <input type = "text"/ ng-model=handle>
+                </div>
+                <hr/>
+                <h1> twitter.com/{{lowercase()}}</h1>
+<!--                <h1>Hello {{name}}!</h1>-->
                 
             </div>
 

@@ -26,12 +26,9 @@ angularApp.controller(
         //bound to each other without doing anything by angular code that is already in angular.min.js 
         //whatever we put in scope, it is available in view
         $scope.name = 'Santosh';
-        $timeout(function()
-        {
-        $scope.name="Everyone"
-        },3000)
-        $scope.formatedname = $filter('uppercase')($scope.name);
-        $log.info($scope.name);
-        $log.info($scope.formatedname);
+        $scope.handle=''
+        $scope.lowercase = function(){
+            return $filter('lowercase')($scope.handle)
+        }
     
 }]);

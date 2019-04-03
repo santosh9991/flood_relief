@@ -27,6 +27,12 @@ angularApp.controller(
         //whatever we put in scope, it is available in view
         $scope.name = 'Santosh';
         $scope.handle=''
+        $scope.characters =5
+        $scope.rules = [{
+        "ruleName":"Must be 5",
+        "ruleName":"Must be 4",
+        "ruleName":"Must be 3"
+        }]
         $scope.lowercase = function(){
             return $filter('lowercase')($scope.handle)
         }
@@ -35,12 +41,12 @@ angularApp.controller(
             console.log("old:",oldValue)
             console.log("new:",newValue)
         })
-        setTimeout(function(){
-            //$scope.handle is out of scope if you do not 
-            $scope.$apply(function(){
-            $scope.handle="newHandle"
-            console.log("setTimeout")
-            });
-        },3000)
-    
+//        setTimeout(function(){
+//            //$scope.handle is out of scope if you do not 
+//            $scope.$apply(function(){
+//            $scope.handle="newHandle"
+//            console.log("setTimeout")
+//            });
+//        },3000)
+//    
 }]);

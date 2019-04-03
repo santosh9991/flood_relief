@@ -66,13 +66,32 @@
                     <label>What is your twitter ID/</label>
                     <input type = "text"/ ng-model=handle>
                 </div>
+                <!--ng-show will direct the html class to show 
+                only when the condition is true. You could also add different classes to css alert by using ng-class
+                -->
+                <div class="alert" ng-class="{'alert-warning':handle.length<characters,'alert-info':handle.length>characters}" ng-show="handle.length!==characters">
+                    
+                    <div ng-show="handle.length<characters">
+                    less than  5 characters
+                    </div>
+                    <div ng-show="handle.length>characters">
+                    More than 5 characters
+                        </div>
+                </div>
                 <hr/>
                 <h1> twitter.com/{{lowercase()}}</h1>
 <!--                <h1>Hello {{name}}!</h1>-->
+                <h3>Rules</h3>
+                <ul>
+                    <!--
+                    ng-repeat creates multiple elements in the html for perticular collection
+                    -->
+                    <li ng-repeat="rule in rules">{{rule.ruleName}}</li>
+                </ul>
                 
             </div>
 
-		</div>
+		      </div>
 
     </body>
 </html>

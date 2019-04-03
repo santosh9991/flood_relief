@@ -17,10 +17,13 @@ angularApp.controller(
     [
         //scope binds the model and view togeather, object called scope and is a service
         //all angularjs services start with $ sign
-        '$scope','$log','$filter','$timeout', function (
+        '$scope','$log','$filter','$timeout', 
+        //$http service is used to get the data from outside world
+        '$http',
+        function (
         //angularjs injected the $scope object for us. This is called dependency injection
         // we can add on to the scope object. Eg: $scope.name = "santosh"
-        $scope,$log,$filter,$timeout) {
+        $scope,$log,$filter,$timeout,$http) {
         //Any code inside here is assosiated with the part of the view defined by the controller name
         //mainController in index.html. This is a model code. Model code and the corresponding view is 
         //bound to each other without doing anything by angular code that is already in angular.min.js 
@@ -28,19 +31,34 @@ angularApp.controller(
         $scope.name = 'Santosh';
         $scope.handle=''
         $scope.characters =5
-        $scope.rules = [{
-        "ruleName":"Must be 5",
-        "ruleName":"Must be 4",
-        "ruleName":"Must be 3"
-        }]
+        $scope.rules = [
+        {"ruleName":"Must be 5"},
+        {"ruleName":"Must be 4"},
+        {"ruleName":"Must be 3"}
+        ]
         $scope.lowercase = function(){
             return $filter('lowercase')($scope.handle)
         }
-        $scope.$watch('handle',function(newValue,oldValue){
-            console.log("changed!")
-            console.log("old:",oldValue)
-            console.log("new:",newValue)
-        })
+//        $http({
+//        method: 'GET',
+//        url: 'http://localhost:5000/rules'
+//        }).then(function (results){
+//            $scope.rules = results
+//        },function (error){
+//            console.log(data)
+//        });
+//        $http.get('/rules')
+//            .success(function(result){
+//            $scope.rules = result
+//        })
+//        .error(function(data,status){
+//            console.log(data)
+//        })
+//        $scope.$watch('handle',function(newValue,oldValue){
+//            console.log("changed!")
+//            console.log("old:",oldValue)
+//            console.log("new:",newValue)
+//        })
 //        setTimeout(function(){
 //            //$scope.handle is out of scope if you do not 
 //            $scope.$apply(function(){
@@ -50,3 +68,10 @@ angularApp.controller(
 //        },3000)
 //    
 }]);
+angularApp.controller(
+    'secondController',
+    ['$scope',function($scope){
+        $scope.name = "Kittu"
+    }]
+    
+    );

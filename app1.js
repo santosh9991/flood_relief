@@ -14,8 +14,28 @@ angularApp.config(function($routeProvider){
     })
     
 })
-angularApp.controller('mainController',["$scope","$location","$log",function($scope,$location,$log){
-    $scope.name = "Santosh"
+angularApp.service('nameService',function(){
+    var self = this;
+    var name = "Santosh Kesireddy";
+    var nameLenght = function(){
+        return self.name.length;
+    };
+})
+angularApp.directive('searchResults',function(){
+    return {
+        templateUrl:"directives/searchresult.html",
+        
+           }
+})
+
+angularApp.controller('mainController',["$scope","$location","$log","nameService",function($scope,$location,$log,nameService){
+    $scope.Person = {
+        name:"Santosh reddy",
+        Address:"9001 Amberglen blvd"
+    }
+//    $scope.name = "Santosh"
+//    console.log(nameService)
+//    console.log(nameService.nameLength())
 }]);
 
 angularApp.controller('secondController',["$scope","$location","$log","$routeParams",function($scope,$location,$log,$routeParams){
